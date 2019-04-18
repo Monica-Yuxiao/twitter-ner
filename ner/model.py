@@ -28,8 +28,9 @@ source: https://cs230-stanford.github.io/pytorch-getting-started.html
 
 class BiLSTM_CRF(nn.Module):
 
-    def __init__(self, vocab_size, tag_to_ix, embedding_dim, hidden_dim):
+    def __init__(self, vocab_size, tag_to_ix, features_dim, embedding_dim, hidden_dim, debug):
         super(BiLSTM_CRF, self).__init__()
+        self.debug = debug
         self.embedding_dim = embedding_dim
         self.hidden_dim = hidden_dim
         self.vocab_size = vocab_size
@@ -56,7 +57,7 @@ class BiLSTM_CRF(nn.Module):
         construct a linear layer with parameters
         a dense layer that multiple final feature vector with weight of shape (all_feats_dim, tagset_size)
         '''
-        self.all_feats_dim = self.hidden_dim + 0
+        self.all_feats_dim = self.hidden_dim + features_dim
         self.hidden2tag = nn.Linear(self.all_feats_dim, self.tagset_size - 2)
 
         # Matrix of transition parameters from N(0, 1).  Entry i,j is the score of
@@ -66,7 +67,7 @@ class BiLSTM_CRF(nn.Module):
         # to the start tag and we never transfer from the stop tag
         # self.transitions.data[tag_to_ix["<START>"], :] = -10000
         # self.transitions.data[:, tag_to_ix["<STOP>"]] = -10000
-        print("initiliazed transition:\n", self.transition)
+        # print("initiliazed transition:\n", self.transition)
 
 
     def init_hidden(self):
@@ -100,22 +101,31 @@ class BiLSTM_CRF(nn.Module):
         # self.hidden being updated to continue for the next sentence
         return lstm_out.view(len(sentence), self.hidden_dim)
 
-    def _get_all_features(self, lstm_out):
+    # def _get_all_features(self, lstm_out):
+    #     # could add more features to hidden state, extend to (len(sentence), all_feats_dim)
+    #     if self.all_feats_dim == self.hidden_dim:
+    #         feats = lstm_out
+    #     return feats
+
+
+    def _get_all_features(self, lstm_out, features):
+        if self.debug: print("** inside get_all_features **")
         # could add more features to hidden state, extend to (len(sentence), all_feats_dim)
-        if self.all_feats_dim == self.hidden_dim:
-            feats = lstm_out
+        if self.debug: print("lstm_out size: ", lstm_out.size())
+        if self.debug: print("features size: ", features.size())
+        feats = torch.cat((lstm_out, features), 1)
         return feats
 
 
-    def _get_emission(self, sentence):
+    def _get_emission(self, sentence, more_features):
+        if self.debug: print("** inside get_emission **")
         lstm_out = self._get_lstm_hidden(sentence)
-        all_feats = self._get_all_features(lstm_out)
-        print("shape of all_feats: ", all_feats.size())
+        all_feats = self._get_all_features(lstm_out, more_features)
         # linear layer input: shape (len(sentence), all_feats_dim)
         # output of shape (len(sentence), tagset_size)
         # internally matmul input with weight of shape (all_feats_dim, tagset_size)
         emission = self.hidden2tag(all_feats)
-        print("shape of emission: ", emission.size())
+        if self.debug: print("shape of emission: ", emission.size())
         return emission
 
 
@@ -128,9 +138,9 @@ class BiLSTM_CRF(nn.Module):
         :return: alpha = log_sum_exp(score(x, y))
         '''
 
-        print("** inside _forward_alg **")
+        if self.debug: print("** inside _forward_alg **")
         forward_var = self.transition[:, self.tag_to_ix["<START>"]] + emission[0].view(1, -1)
-        print("forward score for the first word: ", forward_var)
+        if self.debug: print("forward score for the first word: ", forward_var)
         # Iterate through rest of the sentence
         for feat in emission[1:]:
             alphas_t = []  # The forward tensors at this timestep
@@ -147,7 +157,7 @@ class BiLSTM_CRF(nn.Module):
 
             # now alphas_t is a list contains 3 scores for each tag state
             forward_var = torch.cat(alphas_t).view(1, -1)  # return shape [1, 3]
-            print("forward score for the whole sentence: ", forward_var)
+            if self.debug: print("forward score for the whole sentence: ", forward_var)
 
         # # now we have forward_var to the last word,
         # # add transition from O, B, I to STOP tag
@@ -157,7 +167,7 @@ class BiLSTM_CRF(nn.Module):
 
 
     def _score_sentence(self, emission, tags):
-        # print("** inside _score_sentence **")
+        if self.debug: print("** inside _score_sentence **")
         # Gives the score of a provided tag sequence
         # emission of (len(sentence), tagset_size)
         score = Variable(torch.Tensor([0]))
@@ -171,7 +181,7 @@ class BiLSTM_CRF(nn.Module):
         return score
 
 
-    def neg_log_likelihood(self, sentence, true_tags):
+    def neg_log_likelihood(self, sentence, true_tags, more_features):
         '''
 
         :param sentence(x): sentence of tensor size (len(sentence))
@@ -180,12 +190,13 @@ class BiLSTM_CRF(nn.Module):
                              = -log(exp(score(x, y)) + log(sum_exp(score(x, y'))
                              = log_sum_exp(score(x, y') - score(x, y)
         '''
-        emission = self._get_emission(sentence)
+        if self.debug: print("** inside neg_log_likelihood **")
+        emission = self._get_emission(sentence, more_features)
         forward_score = self._forward_alg(emission)
-        print("forward score: ", forward_score)
+        if self.debug: print("forward score: ", forward_score)
         gold_score = self._score_sentence(emission, true_tags)
-        print("gold score: ", gold_score)
-        print("neg_log_likelihood: ", forward_score - gold_score)
+        if self.debug: print("gold score: ", gold_score)
+        if self.debug: print("neg_log_likelihood: ", forward_score - gold_score)
         return forward_score - gold_score
 
 
@@ -196,10 +207,10 @@ class BiLSTM_CRF(nn.Module):
         :return: the most likely tag sequence for a give sentence(emission), and the score
         '''
 
-        print("** inside viterbi **")
+        if self.debug: print("** inside _viterbi_decode **")
 
         forward_var = self.transition[:self.tagset_size - 2, self.tag_to_ix["<START>"]] + emission[0].view(1, -1)
-        print("forward score for the first word: ", forward_var)
+        if self.debug: print("forward score for the first word: ", forward_var)
 
         backpointers = []
 
@@ -221,7 +232,7 @@ class BiLSTM_CRF(nn.Module):
             # Now add in the emission scores, and assign forward_var to the list
             # of 3 viterbi variables we just computed, forward_var again becomes shape of (1, 3)
             forward_var = (torch.cat(viterbivars_t) + feat).view(1, -1)
-            print("forward score for current word: ", forward_var)
+            if self.debug: print("forward score for current word: ", forward_var)
             backpointers.append(bptrs_t)
 
         # # Transition from the last tag (O,B,I) to STOP_TAG
@@ -229,21 +240,22 @@ class BiLSTM_CRF(nn.Module):
         # terminal_var = forward_var + self.transition[self.tag_to_ix["<STOP>"], :self.tagset_size-2]
         best_tag_id = argmax(forward_var)
         path_score = forward_var[0][best_tag_id]
-        print("final_viterbi_score: ", path_score)
+        if self.debug: print("final_viterbi_score: ", path_score)
         # Follow the back pointers to decode the best path.
         best_path = [best_tag_id]
         for bptrs_t in reversed(backpointers):
             best_tag_id = bptrs_t[best_tag_id]
             best_path.append(best_tag_id)
         best_path.reverse()
-        print("best path: ", best_path)
+        if self.debug: print("best path: ", best_path)
         return path_score, best_path
 
 
-    def forward(self, sentence):
+    def forward(self, sentence, more_features):
+        if self.debug: print("** inside forward **")
         # forward() gets called internally by output = model(input)
         # Get the emission scores from the BiLSTM
-        emission = self._get_emission(sentence)
+        emission = self._get_emission(sentence, more_features)
         # Find the best path, given the features.
         score, tag_seq = self._viterbi_decode(emission)
         return score, tag_seq
