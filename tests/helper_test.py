@@ -17,5 +17,10 @@ print(a)
 # b = helper.log_sum_exp(a)
 # print(b)
 
-b = helper.log_sum_exp_0(a)
-print(b)
+a = torch.FloatTensor([1.0, 1.5]).view(1, -1)
+a2 = torch.FloatTensor([5.0, 6.0]).view(1, -1)
+print(helper.log_sum_exp(a))
+print(helper.log_sum_exp(a2))
+
+
+print(45 % 50)

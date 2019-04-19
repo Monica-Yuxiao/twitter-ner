@@ -1,4 +1,4 @@
-from ner.features import *
+from ner.training_twitter import *
 
 if contains_special("-Tim-"):
     print("-Tim-")

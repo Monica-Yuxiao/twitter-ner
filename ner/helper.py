@@ -12,10 +12,8 @@ def contains_special(word):
 
 
 def prepare_sentence(seq, to_ix):
-    idxs = [to_ix[w] for w in seq]
+    idxs = [to_ix[w] if w in to_ix else to_ix["<UNK>"] for w in seq]
     return torch.LongTensor(idxs)
-
-
 
 def prepare_tags(seq, to_ix):
     # B-person maps to B
@@ -25,6 +23,44 @@ def prepare_tags(seq, to_ix):
 
 def prepare_features(feature_sequence):
     return torch.FloatTensor(feature_sequence)
+
+
+def load_data(infpath):
+    examples = []
+    new_example = ([], [])
+    with open(infpath) as inf:
+        line = inf.readline()
+        while line:
+            # print(">", line.strip(), "<")
+            if line.strip() != "":  # add to tuple
+                word, tag = line.strip().split()
+                new_example[0].append(word)
+                new_example[1].append(tag)
+            else:  # add current example to list, then start a new example
+                examples.append(new_example)
+                new_example = ([], [])
+            line = inf.readline()
+        examples.append(new_example)
+    return examples
+
+
+def add_features(examples):
+    features = list()
+    for example in examples:
+        sentence_feature = list()
+        for word in example[0]:
+            word_feature = list()
+            word_feature.append(start_with_capital(word))
+            word_feature.append(contains_special(word))
+            # word_feature.append(no_alphabet(word))
+            sentence_feature.append(word_feature)
+        features.append(sentence_feature)
+    return features
+
+
+# def prepare_new_sentence(seq, to_ix):
+#     idxs = [to_ix[w] if w in to_ix else len(to_ix) for w in seq]
+#     return torch.LongTensor(idxs)
 
 
 def argmax(vec):
