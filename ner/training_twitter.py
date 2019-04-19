@@ -1,17 +1,4 @@
-import re
-import os
-
-
-def start_with_capital(word):
-    return 1 if re.match(r'[A-Z]', word[0]) else 0
-
-
-def contains_special(word):
-    return 1 if re.search(r'[@_!#$%^&*()<>?/\|}{~:]', word) else 0
-
-
-# def no_alphabet(word):
-#     return 1 if re.search(r'[A-Za-z]', word) else 0
+from ner.helper import start_with_capital, contains_special
 
 
 def load_data(infpath):
