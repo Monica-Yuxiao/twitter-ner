@@ -1,4 +1,4 @@
-from ner.features import add_features
+from ner.training_twitter import add_features
 from ner.model import BiLSTM_CRF
 import torch
 import torch.optim as optim

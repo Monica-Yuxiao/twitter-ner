@@ -1,11 +1,30 @@
 import torch
+import re
 
 
-# def to_scalar(var):
-#     # convert tensor of 1 element into a scalar
-#     assert len(var.view(-1).data.tolist()) == 1, \
-#         print("Can't convert to scalar. \nInput: {}".format(var))
-#     return var.view(-1).data.tolist()[0]
+
+def start_with_capital(word):
+    return 1 if re.match(r'[A-Z]', word[0]) else 0
+
+
+def contains_special(word):
+    return 1 if re.search(r'[@_!#$%^&*()<>?/\|}{~:]', word) else 0
+
+
+def prepare_sentence(seq, to_ix):
+    idxs = [to_ix[w] for w in seq]
+    return torch.LongTensor(idxs)
+
+
+
+def prepare_tags(seq, to_ix):
+    # B-person maps to B
+    idxs = [to_ix[w[0]] for w in seq]
+    return torch.LongTensor(idxs)
+
+
+def prepare_features(feature_sequence):
+    return torch.FloatTensor(feature_sequence)
 
 
 def argmax(vec):
@@ -19,8 +38,5 @@ def log_sum_exp(vec): # vec in shape of (1, x)
     max_score_broadcast = max_score.view(1, -1).expand(1, vec.size()[1])
     return max_score + torch.log(torch.sum(torch.exp(vec - max_score_broadcast)))
 
-
-# def log_sum_exp(vec):
-#     return torch.log(torch.sum(torch.exp(vec)))
 
 
