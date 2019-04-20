@@ -1,6 +1,6 @@
 import torch
 
-from ner import helper
+from ner.helper import *
 
 
 

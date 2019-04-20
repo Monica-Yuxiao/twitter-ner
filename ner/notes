@@ -1,0 +1,51 @@
+# before training
+           precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       134
+           1       0.00      0.00      0.00         5
+           2       0.05      1.00      0.10         8
+
+   micro avg       0.05      0.05      0.05       147
+   macro avg       0.02      0.33      0.03       147
+weighted avg       0.00      0.05      0.01       147
+
+
+# performance on training set
+1000 examples, 100 epoches
+
+0 tags: tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 0, 2, 0, 0, 0, 0, 0,
+        0, 0, 0])
+
+After training: (tensor(140.9074), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0])
+
+1 tags: tensor([0, 0, 0, 0, 2, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0])
+
+After training: (tensor(60.8369), [0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0])
+
+2 tags: tensor([2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(66.1106), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+              precision    recall  f1-score   support
+
+           0       0.96      1.00      0.98        46
+           1       1.00      1.00      1.00         3
+           2       1.00      0.60      0.75         5
+
+   micro avg       0.96      0.96      0.96        54
+   macro avg       0.99      0.87      0.91        54
+weighted avg       0.96      0.96      0.96        54
+
+
+
+# performace on validation(used as test)
+
+              precision    recall  f1-score   support
+
+           0       0.96      0.98      0.97      4339
+           1       0.46      0.45      0.46       132
+           2       0.60      0.39      0.47       174
+
+   micro avg       0.94      0.94      0.94      4645
+   macro avg       0.68      0.61      0.63      4645
+weighted avg       0.93      0.94      0.94      4645

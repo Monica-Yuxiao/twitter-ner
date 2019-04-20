@@ -2,15 +2,6 @@ import torch
 import re
 
 
-
-def start_with_capital(word):
-    return 1 if re.match(r'[A-Z]', word[0]) else 0
-
-
-def contains_special(word):
-    return 1 if re.search(r'[@_!#$%^&*()<>?/\|}{~:]', word) else 0
-
-
 def prepare_sentence(seq, to_ix):
     idxs = [to_ix[w] if w in to_ix else to_ix["<UNK>"] for w in seq]
     return torch.LongTensor(idxs)
@@ -58,11 +49,6 @@ def add_features(examples):
     return features
 
 
-# def prepare_new_sentence(seq, to_ix):
-#     idxs = [to_ix[w] if w in to_ix else len(to_ix) for w in seq]
-#     return torch.LongTensor(idxs)
-
-
 def argmax(vec):
     # return the argmax as a python int
     _, idx = torch.max(vec, 1)
@@ -75,4 +61,15 @@ def log_sum_exp(vec): # vec in shape of (1, x)
     return max_score + torch.log(torch.sum(torch.exp(vec - max_score_broadcast)))
 
 
+
+def start_with_capital(word):
+    return 1 if re.match(r'[A-Z]', word[0]) else 0
+
+
+def contains_special(word):
+    return 1 if re.search(r'[@_!#$%^&*()<>?/\|}{~:]', word) else 0
+
+
+def contains_alphabet(word):
+    return 1 if re.search(r'A-Z', word) else 0
 
