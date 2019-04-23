@@ -12,15 +12,15 @@ from ner.helper import *
 # assert(b == 2)
 #
 #
-a = torch.randn((1, 3))
-print(a)
+# a = torch.randn((1, 3))
+# print(a)
+# print(log_sum_exp(a))
 # b = helper.log_sum_exp(a)
 # print(b)
 
-a = torch.FloatTensor([1.0, 1.5]).view(1, -1)
-a2 = torch.FloatTensor([5.0, 6.0]).view(1, -1)
-print(helper.log_sum_exp(a))
-print(helper.log_sum_exp(a2))
+a = torch.FloatTensor([0.9, 0.05, 0.05]).view(1, -1)
+a2 = torch.FloatTensor([0.99, 0.05, 0.05]).view(1, -1)
+print("log_sum_exp(a): ", log_sum_exp(a))
+print("log_sum_exp(a2): ", log_sum_exp(a2))
 
 
-print(45 % 50)

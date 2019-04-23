@@ -148,5 +148,5 @@ with torch.no_grad():
     # print(pred_tags)
     print(classification_report(true_tags, pred_tags))
 
-plt.plot(neg_log_likelihoods)
-plt.show()
+    plt.plot(neg_log_likelihoods)
+    plt.show()

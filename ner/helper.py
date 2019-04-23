@@ -58,6 +58,9 @@ def argmax(vec):
 def log_sum_exp(vec): # vec in shape of (1, x)
     max_score = vec[0, argmax(vec)]
     max_score_broadcast = max_score.view(1, -1).expand(1, vec.size()[1])
+    # print("max_score_broadcas: ", max_score_broadcast)
+    # print("vec - max_score_broadcast: ", vec - max_score_broadcast)
+    # print("original log sum exp: ", torch.log(torch.sum(torch.exp(vec))))
     return max_score + torch.log(torch.sum(torch.exp(vec - max_score_broadcast)))
 
 
