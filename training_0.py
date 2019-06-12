@@ -1,5 +1,5 @@
-from ner.training_twitter import add_features
-from ner.model import BiLSTM_CRF
+from train_2 import add_features
+from BLSTM_CRF2 import BiLSTM_CRF
 import torch
 import torch.optim as optim
 import matplotlib.pyplot as plt

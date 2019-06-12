@@ -1,5 +1,5 @@
 import torch
-from ner.helper import argmax, log_sum_exp
+from helper import argmax, log_sum_exp
 
 import torch.nn as nn
 from torch.autograd import Variable
@@ -26,10 +26,10 @@ source: https://cs230-stanford.github.io/pytorch-getting-started.html
 '''
 
 
-class BiLSTM_CRF(nn.Module):
+class CNN_BLSTM_CRF(nn.Module):
 
-    def __init__(self, vocab_size, tag_to_ix, features_dim, embedding_dim, hidden_dim, debug):
-        super(BiLSTM_CRF, self).__init__()
+    def __init__(self, char_dim, max_chars, vocab_size, tag_to_ix, features_dim, embedding_dim, hidden_dim, debug=False):
+        super(CNN_BLSTM_CRF, self).__init__()
         self.debug = debug
         self.embedding_dim = embedding_dim
         self.hidden_dim = hidden_dim
@@ -37,6 +37,23 @@ class BiLSTM_CRF(nn.Module):
         self.tag_to_ix = tag_to_ix
         self.tagset_size = len(tag_to_ix)
         self.hidden = self.init_hidden()
+
+        # Need to constrcut a character_level_embedding, concat the output to word_embeds output
+        # output shape of word_embeds: (input*, embedding_size) where input* is len(sentence)
+        # shape of embeds is (len(sentence), 1, embedding_size)
+        # original input of word embed layer is sentence: is a tensor vector size of len(sentence)
+        # could sentence a tuple, the second element contains char-level vector
+        # sentence = ()
+        # kernel size can be tuple, first int is height, second int for width
+        # input: (N, C_in, L_in) where , C = # of channels, L = length of signal sequence
+        # Output: (N, C_out, L_out)
+        # N = batch size = 1
+        # C_in = # of input channels = alphabet size = 70  (if letters+number+specials)
+        # L = length of signal sequence (max_chars)
+
+        self.conv1d = nn.Sequential(nn.Conv1d(in_channels=char_dim, out_channels=1, kernel_size=3, padding=2),
+                                   nn.ReLU(),
+                                   nn.MaxPool1d(3))
 
         '''
         construct embedding layer with parameters:
@@ -51,8 +68,10 @@ class BiLSTM_CRF(nn.Module):
         hidden_size = hidden_dim //2 for each direction, # features in the hidden state
         internally weight of shape (embedding_dim, hidden_dim // 2) from N(0, 1)
         '''
-        self.lstm = nn.LSTM(embedding_dim, hidden_dim // 2, num_layers=1, bidirectional=True)
-
+        # (max_char + 2*padding - (kernel_size -1)) // maxpool
+        self.input_dim = embedding_dim + (max_chars + 2) // 3
+        self.lstm = nn.LSTM(self.input_dim, hidden_dim // 2, num_layers=1, bidirectional=True)
+        self.dropout = nn.Dropout(0.3)
         '''
         construct a linear layer with parameters
         a dense layer that multiple final feature vector with weight of shape (all_feats_dim, tagset_size)
@@ -84,13 +103,27 @@ class BiLSTM_CRF(nn.Module):
                 torch.randn(2, 1, self.hidden_dim // 2))
 
 
-    def _get_lstm_hidden(self, sentence):
+    def _get_lstm_hidden(self, sentence, char_level_sentence):
+        # char level CNN
+        char_cnn = self.conv1d(char_level_sentence).view(len(sentence), -1)
+        if self.debug: print("char cnn: ", char_cnn.size())
+        # add a dropout
+        char_cnn = self.dropout(char_cnn)
         # initiliaze (h0, c0)
         self.hidden = self.init_hidden()
         # sentence is a tensor vector size of len(sentence), input of embedding layer
         # output shape of word_embeds: (input*, embedding_size) where input* is len(sentence)
         # shape of embeds is (len(sentence), 1, embedding_size)
-        embeds = self.word_embeds(sentence).view(len(sentence), 1, -1)
+        # embeds = self.word_embeds(sentence).view(len(sentence), 1, -1)
+        word_embeds = self.word_embeds(sentence)
+        if self.debug: print("word_embeds: ", word_embeds.size())
+        embeds = torch.cat((word_embeds, char_cnn), 1)
+        if self.debug: print("cat: ", embeds.size())
+        embeds = embeds.view(len(sentence), 1, -1)
+        if self.debug: print("input size to lstm: ", embeds.size())
+
+        # add a dropout
+        embeds = self.dropout(embeds)
         # lstm layer inputs: (input, (h0, c0))
         # 1st arg: input of shape(seq_len, batch, input_size)
         # 2nd atg: (h0, c0) initialized when construct the model, then updated
@@ -99,13 +132,9 @@ class BiLSTM_CRF(nn.Module):
         # (h_n, c_n): last time step hidden and cell, each of shape (num_layers*num_directions, batch, hidden_size)
         lstm_out, self.hidden = self.lstm(embeds, self.hidden)
         # self.hidden being updated to continue for the next sentence
+        # add a dropout
+        lstm_out = self.dropout(lstm_out)
         return lstm_out.view(len(sentence), self.hidden_dim)
-
-    # def _get_all_features(self, lstm_out):
-    #     # could add more features to hidden state, extend to (len(sentence), all_feats_dim)
-    #     if self.all_feats_dim == self.hidden_dim:
-    #         feats = lstm_out
-    #     return feats
 
 
     def _get_all_features(self, lstm_out, features):
@@ -117,9 +146,9 @@ class BiLSTM_CRF(nn.Module):
         return feats
 
 
-    def _get_emission(self, sentence, more_features):
+    def _get_emission(self, sentence, more_features, char_level_sentence):
         if self.debug: print("** inside get_emission **")
-        lstm_out = self._get_lstm_hidden(sentence)
+        lstm_out = self._get_lstm_hidden(sentence, char_level_sentence)
         all_feats = self._get_all_features(lstm_out, more_features)
         # linear layer input: shape (len(sentence), all_feats_dim)
         # output of shape (len(sentence), tagset_size)
@@ -181,7 +210,7 @@ class BiLSTM_CRF(nn.Module):
         return score
 
 
-    def neg_log_likelihood(self, sentence, true_tags, more_features):
+    def neg_log_likelihood(self, sentence, true_tags, more_features, char_level_sentence):
         '''
 
         :param sentence(x): sentence of tensor size (len(sentence))
@@ -191,7 +220,7 @@ class BiLSTM_CRF(nn.Module):
                              = log_sum_exp(score(x, y') - score(x, y)
         '''
         if self.debug: print("** inside neg_log_likelihood **")
-        emission = self._get_emission(sentence, more_features)
+        emission = self._get_emission(sentence, more_features, char_level_sentence)
         forward_score = self._forward_alg(emission)
         if self.debug: print("forward score: ", forward_score)
         gold_score = self._score_sentence(emission, true_tags)
@@ -251,11 +280,11 @@ class BiLSTM_CRF(nn.Module):
         return path_score, best_path
 
 
-    def forward(self, sentence, more_features):
+    def forward(self, sentence, more_features, char_level_sentence):
         if self.debug: print("** inside forward **")
         # forward() gets called internally by output = model(input)
         # Get the emission scores from the BiLSTM
-        emission = self._get_emission(sentence, more_features)
+        emission = self._get_emission(sentence, more_features, char_level_sentence)
         # Find the best path, given the features.
         score, tag_seq = self._viterbi_decode(emission)
         return score, tag_seq

@@ -16,6 +16,22 @@ def prepare_features(feature_sequence):
     return torch.FloatTensor(feature_sequence)
 
 
+def prepare_char_level_sentence(seq, to_ix, max_chars):
+    sent = []
+    for w in seq:
+        # print("current word: ", w)
+        word_tensor = torch.zeros([len(to_ix), max_chars]) # shape (93, 10)
+        # print("min(len(w), max_chars): ", min(len(w), max_chars))
+        for i in range(min(len(w), max_chars)):
+            char = w[i]
+            ix = to_ix[char] if char in to_ix else to_ix["<UNK>"]
+            # print("index of current char: ", ix)
+            word_tensor[ix][i] = 1
+        # print("word tensor: \n", word_tensor)
+        sent.append(word_tensor)
+    return torch.stack(sent)
+
+
 def load_data(infpath):
     examples = []
     new_example = ([], [])
@@ -75,4 +91,39 @@ def contains_special(word):
 
 def contains_alphabet(word):
     return 1 if re.search(r'A-Z', word) else 0
+
+
+def pos_sent(tags):
+    for t in tags:
+        if "B" == t.item() or "I" == t.item():
+            return True
+    else: return False
+
+
+def get_weights(tags):
+    total = len(tags)
+    n_positive = 0
+    for tag in tags:
+        if tag > 0:
+            n_positive += 1
+    n_negative = total - n_positive
+    pos_weight = 0 if n_positive == 0 else 0.7/n_positive
+    neg_weight = 1.0/n_negative if n_positive == 0 else 0.3/n_negative
+    return pos_weight, neg_weight
+    # weights = []
+    # for tag in tags:
+    #     if tag == 0:
+    #         weights.append(neg_weight)
+    #     else:
+    #         weights.append(pos_weight)
+    # assert(sum(weights) == 1.0)
+    # return weights
+
+
+def to_labels(tensor2d):
+    labels = []
+    rows = tensor2d.size()[0]
+    for i in range(rows):
+        labels.append(argmax(tensor2d[i].unsqueeze(0)))
+    return labels
 
