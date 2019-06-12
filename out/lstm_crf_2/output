@@ -1,0 +1,507 @@
+
+              precision    recall  f1-score   support
+
+           0       0.94      0.99      0.97      4339
+           1       0.50      0.16      0.24       132
+           2       0.67      0.13      0.21       174
+
+   micro avg       0.94      0.94      0.94      4645
+   macro avg       0.70      0.43      0.47      4645
+weighted avg       0.92      0.94      0.92      4645
+
+
+predict
+
+              precision    recall  f1-score   support
+
+           0       0.96      0.99      0.97      4339
+           1       0.63      0.48      0.54       132
+           2       0.71      0.34      0.47       174
+
+   micro avg       0.95      0.95      0.95      4645
+   macro avg       0.77      0.60      0.66      4645
+weighted avg       0.94      0.95      0.94      4645
+
+
+
+/anaconda/bin/python3.5 /Users/yuxiaozhang/Documents/19spring/cs273/twitter-ner/train_2.py
+how many examples:  1914
+first example:
+ (['@paulwalk', 'It', "'s", 'the', 'view', 'from', 'where', 'I', "'m", 'living', 'for', 'two', 'weeks', '.', 'Empire', 'State', 'Building', '=', 'ESB', '.', 'Pretty', 'bad', 'storm', 'here', 'last', 'evening', '.'], ['O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'B-facility', 'I-facility', 'I-facility', 'O', 'B-facility', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'])
+last example:
+ (['Avast', 'AntiVirus', '4', '8', 'PROFIONAL', 'Full', 'Life', 'Time', 'Key', ':', 'Avast', 'AntiVirus', '4.8', 'PROFESIONAL', 'Full', 'with', 'Life', 'Time'], ['B-product', 'I-product', 'I-product', 'I-product', 'I-product', 'O', 'O', 'O', 'O', 'O', 'B-product', 'I-product', 'I-product', 'I-product', 'O', 'O', 'O', 'O'])
+feature for 1st example:
+ [[0, 1], [1, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [1, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [1, 0], [1, 0], [1, 0], [0, 0], [1, 0], [0, 0], [1, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
+feature for last example:
+ [[1, 0], [1, 0], [0, 0], [0, 0], [1, 0], [1, 0], [1, 0], [1, 0], [1, 0], [0, 1], [1, 0], [1, 0], [0, 0], [1, 0], [1, 0], [0, 0], [1, 0], [1, 0]]
+== vocab size:  8910
+== how many rare word:  6199
+== word_to_ix size:  2712
+how many additional features:  2
+epoch 0
+epoch 0: train_loss = 3.012883 val_loss = 2.710481
+epoch 1
+epoch 1: train_loss = 2.782198 val_loss = 2.552856
+epoch 2
+epoch 2: train_loss = 2.676856 val_loss = 2.430975
+epoch 3
+epoch 3: train_loss = 2.610724 val_loss = 2.491676
+epoch 4
+epoch 4: train_loss = 2.563775 val_loss = 2.383313
+epoch 5
+epoch 5: train_loss = 2.525461 val_loss = 2.413861
+epoch 6
+epoch 6: train_loss = 2.493609 val_loss = 2.366817
+epoch 7
+epoch 7: train_loss = 2.467018 val_loss = 2.368007
+epoch 8
+epoch 8: train_loss = 2.444308 val_loss = 2.405110
+epoch 9
+epoch 9: train_loss = 2.425029 val_loss = 2.337369
+epoch 10
+epoch 10: train_loss = 2.409053 val_loss = 2.348612
+epoch 11
+epoch 11: train_loss = 2.393204 val_loss = 2.517810
+epoch 12
+epoch 12: train_loss = 2.375909 val_loss = 2.301326
+epoch 13
+epoch 13: train_loss = 2.361917 val_loss = 2.282218
+epoch 14
+epoch 14: train_loss = 2.349190 val_loss = 2.362338
+epoch 15
+epoch 15: train_loss = 2.335537 val_loss = 2.311711
+epoch 16
+epoch 16: train_loss = 2.324959 val_loss = 2.448180
+epoch 17
+epoch 17: train_loss = 2.313738 val_loss = 2.228566
+epoch 18
+epoch 18: train_loss = 2.303020 val_loss = 2.247217
+epoch 19
+epoch 19: train_loss = 2.291850 val_loss = 2.271885
+epoch 20
+epoch 20: train_loss = 2.282585 val_loss = 2.236123
+epoch 21
+epoch 21: train_loss = 2.272030 val_loss = 2.285185
+epoch 22
+epoch 22: train_loss = 2.262253 val_loss = 2.233980
+epoch 23
+epoch 23: train_loss = 2.253738 val_loss = 2.266532
+epoch 24
+epoch 24: train_loss = 2.245372 val_loss = 2.275692
+epoch 25
+epoch 25: train_loss = 2.237837 val_loss = 2.286897
+epoch 26
+epoch 26: train_loss = 2.229210 val_loss = 2.181732
+epoch 27
+epoch 27: train_loss = 2.221115 val_loss = 2.270447
+epoch 28
+epoch 28: train_loss = 2.212942 val_loss = 2.235342
+epoch 29
+epoch 29: train_loss = 2.205142 val_loss = 2.152022
+epoch 30
+epoch 30: train_loss = 2.198130 val_loss = 2.246692
+epoch 31
+epoch 31: train_loss = 2.190881 val_loss = 2.265290
+epoch 32
+epoch 32: train_loss = 2.184415 val_loss = 2.285655
+epoch 33
+epoch 33: train_loss = 2.177149 val_loss = 2.182550
+epoch 34
+epoch 34: train_loss = 2.170544 val_loss = 2.135155
+epoch 35
+epoch 35: train_loss = 2.163528 val_loss = 2.182830
+epoch 36
+epoch 36: train_loss = 2.157215 val_loss = 2.222049
+epoch 37
+epoch 37: train_loss = 2.150802 val_loss = 2.278745
+epoch 38
+epoch 38: train_loss = 2.144394 val_loss = 2.227890
+epoch 39
+epoch 39: train_loss = 2.137911 val_loss = 2.197133
+epoch 40
+epoch 40: train_loss = 2.132121 val_loss = 2.215011
+epoch 41
+epoch 41: train_loss = 2.125691 val_loss = 2.152381
+epoch 42
+epoch 42: train_loss = 2.119086 val_loss = 2.275978
+epoch 43
+epoch 43: train_loss = 2.113806 val_loss = 2.246550
+epoch 44
+epoch 44: train_loss = 2.107176 val_loss = 2.215008
+epoch 45
+epoch 45: train_loss = 2.101870 val_loss = 2.144104
+epoch 46
+epoch 46: train_loss = 2.095176 val_loss = 2.119164
+epoch 47
+epoch 47: train_loss = 2.089470 val_loss = 2.089360
+epoch 48
+epoch 48: train_loss = 2.083182 val_loss = 2.159528
+epoch 49
+epoch 49: train_loss = 2.077697 val_loss = 2.112560
+epoch 50
+epoch 50: train_loss = 2.071882 val_loss = 2.126236
+epoch 51
+epoch 51: train_loss = 2.067051 val_loss = 2.154236
+epoch 52
+epoch 52: train_loss = 2.061641 val_loss = 2.228303
+epoch 53
+epoch 53: train_loss = 2.055659 val_loss = 2.191627
+epoch 54
+epoch 54: train_loss = 2.050438 val_loss = 2.116879
+epoch 55
+epoch 55: train_loss = 2.044920 val_loss = 2.172745
+epoch 56
+epoch 56: train_loss = 2.039411 val_loss = 2.127970
+epoch 57
+epoch 57: train_loss = 2.034011 val_loss = 2.078792
+epoch 58
+epoch 58: train_loss = 2.028625 val_loss = 2.110771
+epoch 59
+epoch 59: train_loss = 2.023602 val_loss = 2.099293
+epoch 60
+epoch 60: train_loss = 2.018256 val_loss = 2.184639
+epoch 61
+epoch 61: train_loss = 2.013314 val_loss = 2.053743
+epoch 62
+epoch 62: train_loss = 2.008676 val_loss = 2.043838
+epoch 63
+epoch 63: train_loss = 2.003284 val_loss = 2.122728
+epoch 64
+epoch 64: train_loss = 1.999060 val_loss = 2.095038
+epoch 65
+epoch 65: train_loss = 1.994916 val_loss = 2.010841
+epoch 66
+epoch 66: train_loss = 1.990469 val_loss = 2.132027
+epoch 67
+epoch 67: train_loss = 1.985770 val_loss = 2.125088
+epoch 68
+epoch 68: train_loss = 1.981148 val_loss = 2.083959
+epoch 69
+epoch 69: train_loss = 1.976921 val_loss = 2.058842
+epoch 70
+epoch 70: train_loss = 1.971954 val_loss = 2.330212
+epoch 71
+epoch 71: train_loss = 1.967908 val_loss = 2.028701
+epoch 72
+epoch 72: train_loss = 1.963546 val_loss = 2.094758
+epoch 73
+epoch 73: train_loss = 1.958954 val_loss = 2.108328
+epoch 74
+epoch 74: train_loss = 1.954880 val_loss = 2.119596
+epoch 75
+epoch 75: train_loss = 1.950434 val_loss = 2.077816
+epoch 76
+epoch 76: train_loss = 1.946195 val_loss = 2.057402
+epoch 77
+epoch 77: train_loss = 1.942277 val_loss = 2.022238
+epoch 78
+epoch 78: train_loss = 1.938027 val_loss = 2.068115
+epoch 79
+epoch 79: train_loss = 1.933664 val_loss = 2.076743
+epoch 80
+epoch 80: train_loss = 1.929077 val_loss = 2.124446
+epoch 81
+epoch 81: train_loss = 1.925096 val_loss = 2.098079
+epoch 82
+epoch 82: train_loss = 1.921027 val_loss = 2.007588
+epoch 83
+epoch 83: train_loss = 1.916867 val_loss = 2.039912
+epoch 84
+epoch 84: train_loss = 1.912932 val_loss = 2.085514
+epoch 85
+epoch 85: train_loss = 1.908843 val_loss = 2.063207
+epoch 86
+epoch 86: train_loss = 1.904894 val_loss = 2.028121
+epoch 87
+epoch 87: train_loss = 1.901014 val_loss = 2.036036
+epoch 88
+epoch 88: train_loss = 1.897001 val_loss = 2.025240
+epoch 89
+epoch 89: train_loss = 1.892792 val_loss = 2.031076
+epoch 90
+epoch 90: train_loss = 1.888903 val_loss = 2.097121
+epoch 91
+epoch 91: train_loss = 1.884952 val_loss = 2.008111
+epoch 92
+epoch 92: train_loss = 1.880952 val_loss = 1.943422
+epoch 93
+epoch 93: train_loss = 1.877191 val_loss = 2.121286
+epoch 94
+epoch 94: train_loss = 1.873431 val_loss = 2.060825
+epoch 95
+epoch 95: train_loss = 1.869622 val_loss = 1.978221
+epoch 96
+epoch 96: train_loss = 1.865833 val_loss = 1.994905
+epoch 97
+epoch 97: train_loss = 1.862148 val_loss = 2.017065
+epoch 98
+epoch 98: train_loss = 1.858412 val_loss = 2.057478
+epoch 99
+epoch 99: train_loss = 1.854557 val_loss = 2.089342
+epoch 100
+epoch 100: train_loss = 1.850361 val_loss = 2.299865
+epoch 101
+epoch 101: train_loss = 1.846332 val_loss = 2.004894
+epoch 102
+epoch 102: train_loss = 1.842970 val_loss = 1.987665
+epoch 103
+epoch 103: train_loss = 1.839420 val_loss = 1.977580
+epoch 104
+epoch 104: train_loss = 1.835831 val_loss = 2.061946
+epoch 105
+epoch 105: train_loss = 1.832646 val_loss = 2.022368
+epoch 106
+epoch 106: train_loss = 1.829068 val_loss = 2.011208
+epoch 107
+epoch 107: train_loss = 1.825495 val_loss = 1.960280
+epoch 108
+epoch 108: train_loss = 1.822273 val_loss = 2.044586
+epoch 109
+epoch 109: train_loss = 1.818756 val_loss = 2.013079
+epoch 110
+epoch 110: train_loss = 1.815281 val_loss = 1.990638
+epoch 111
+epoch 111: train_loss = 1.811876 val_loss = 2.070724
+epoch 112
+epoch 112: train_loss = 1.808601 val_loss = 2.013978
+epoch 113
+epoch 113: train_loss = 1.805285 val_loss = 1.965817
+epoch 114
+epoch 114: train_loss = 1.801905 val_loss = 2.009298
+epoch 115
+epoch 115: train_loss = 1.798412 val_loss = 2.024965
+epoch 116
+epoch 116: train_loss = 1.795189 val_loss = 2.041410
+epoch 117
+epoch 117: train_loss = 1.791917 val_loss = 1.996753
+epoch 118
+epoch 118: train_loss = 1.788242 val_loss = 2.043454
+epoch 119
+epoch 119: train_loss = 1.784970 val_loss = 1.996436
+epoch 120
+epoch 120: train_loss = 1.781863 val_loss = 2.003710
+epoch 121
+epoch 121: train_loss = 1.778553 val_loss = 2.005646
+epoch 122
+epoch 122: train_loss = 1.775473 val_loss = 2.026449
+epoch 123
+epoch 123: train_loss = 1.772130 val_loss = 1.953654
+epoch 124
+epoch 124: train_loss = 1.769119 val_loss = 1.900635
+epoch 125
+epoch 125: train_loss = 1.765853 val_loss = 1.967570
+epoch 126
+epoch 126: train_loss = 1.762653 val_loss = 1.970384
+epoch 127
+epoch 127: train_loss = 1.759525 val_loss = 2.071721
+epoch 128
+epoch 128: train_loss = 1.756639 val_loss = 1.958772
+epoch 129
+epoch 129: train_loss = 1.753446 val_loss = 2.011345
+epoch 130
+epoch 130: train_loss = 1.750706 val_loss = 1.961372
+epoch 131
+epoch 131: train_loss = 1.747686 val_loss = 2.094589
+epoch 132
+epoch 132: train_loss = 1.744867 val_loss = 1.890689
+epoch 133
+epoch 133: train_loss = 1.741788 val_loss = 1.882868
+epoch 134
+epoch 134: train_loss = 1.738886 val_loss = 2.066136
+epoch 135
+epoch 135: train_loss = 1.735838 val_loss = 2.036350
+epoch 136
+epoch 136: train_loss = 1.732933 val_loss = 2.036839
+epoch 137
+epoch 137: train_loss = 1.729988 val_loss = 1.987119
+epoch 138
+epoch 138: train_loss = 1.727069 val_loss = 1.978504
+epoch 139
+epoch 139: train_loss = 1.724066 val_loss = 2.019337
+epoch 140
+epoch 140: train_loss = 1.721042 val_loss = 1.989578
+epoch 141
+epoch 141: train_loss = 1.718122 val_loss = 1.976482
+epoch 142
+epoch 142: train_loss = 1.715302 val_loss = 1.896996
+epoch 143
+epoch 143: train_loss = 1.712448 val_loss = 2.088745
+epoch 144
+epoch 144: train_loss = 1.709890 val_loss = 1.973447
+epoch 145
+epoch 145: train_loss = 1.706951 val_loss = 2.042639
+epoch 146
+epoch 146: train_loss = 1.703878 val_loss = 2.054469
+epoch 147
+epoch 147: train_loss = 1.700908 val_loss = 2.005861
+epoch 148
+epoch 148: train_loss = 1.698063 val_loss = 1.960783
+epoch 149
+epoch 149: train_loss = 1.695410 val_loss = 1.958467
+0 tags: tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 0, 2, 0, 0, 0, 0, 0,
+        0, 0, 0])
+
+After training: (tensor(147.0949), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0])
+
+1 tags: tensor([0, 0, 0, 0, 2, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0])
+
+After training: (tensor(60.6781), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+2 tags: tensor([2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(54.8571), [2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+3 tags: tensor([0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(53.4072), [0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+4 tags: tensor([0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(114.4139), [0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+5 tags: tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(78.5585), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+6 tags: tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0])
+
+After training: (tensor(149.1081), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+7 tags: tensor([0, 0, 0, 0])
+
+After training: (tensor(13.6846), [0, 0, 0, 0])
+
+8 tags: tensor([0, 0, 0, 0, 2, 1, 1, 0, 0, 0, 0, 0])
+
+After training: (tensor(62.4927), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+9 tags: tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(135.2675), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+10 tags: tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(61.9337), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+11 tags: tensor([0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(44.5046), [0, 0, 0, 0, 0, 0, 0, 0])
+
+12 tags: tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0])
+
+After training: (tensor(151.6303), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+13 tags: tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(70.8136), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+14 tags: tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(48.4833), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+15 tags: tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(126.6525), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+16 tags: tensor([0, 0, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(54.6632), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+17 tags: tensor([0, 0, 0, 0, 0])
+
+After training: (tensor(31.5977), [0, 0, 0, 0, 0])
+
+18 tags: tensor([0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(102.5367), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+19 tags: tensor([2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(125.0650), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+              precision    recall  f1-score   support
+
+           0       0.96      1.00      0.98       290
+           1       0.67      0.29      0.40         7
+           2       1.00      0.40      0.57        10
+
+   micro avg       0.96      0.96      0.96       307
+   macro avg       0.88      0.56      0.65       307
+weighted avg       0.96      0.96      0.95       307
+
+
+Process finished with exit code 0
+
+
+predict use 120
+              precision    recall  f1-score   support
+
+           0       0.96      0.99      0.97      4339
+           1       0.67      0.41      0.51       132
+           2       0.73      0.37      0.49       174
+
+   micro avg       0.95      0.95      0.95      4645
+   macro avg       0.79      0.59      0.66      4645
+weighted avg       0.94      0.95      0.94      4645
+
+predict use 100
+
+              precision    recall  f1-score   support
+
+           0       0.95      1.00      0.97      4339
+           1       0.73      0.29      0.41       132
+           2       0.80      0.22      0.35       174
+
+   micro avg       0.95      0.95      0.95      4645
+   macro avg       0.83      0.50      0.58      4645
+weighted avg       0.94      0.95      0.93      4645
+
+predict use 80
+              precision    recall  f1-score   support
+
+           0       0.97      0.97      0.97      4339
+           1       0.46      0.64      0.54       132
+           2       0.63      0.47      0.54       174
+
+   micro avg       0.94      0.94      0.94      4645
+   macro avg       0.69      0.70      0.68      4645
+weighted avg       0.95      0.94      0.94      4645
+
+predict use 60
+
+              precision    recall  f1-score   support
+
+           0       0.96      0.98      0.97      4339
+           1       0.59      0.55      0.57       132
+           2       0.69      0.37      0.49       174
+
+   micro avg       0.95      0.95      0.95      4645
+   macro avg       0.75      0.64      0.68      4645
+weighted avg       0.94      0.95      0.94      4645
+
+
+predict use 40
+
+              precision    recall  f1-score   support
+
+           0       0.96      0.99      0.97      4339
+           1       0.56      0.42      0.48       132
+           2       0.70      0.28      0.40       174
+
+   micro avg       0.94      0.94      0.94      4645
+   macro avg       0.74      0.56      0.62      4645
+weighted avg       0.94      0.94      0.94      4645
+
+predict use 20
+
+              precision    recall  f1-score   support
+
+           0       0.96      0.98      0.97      4339
+           1       0.43      0.45      0.44       132
+           2       0.59      0.33      0.42       174
+
+   micro avg       0.94      0.94      0.94      4645
+   macro avg       0.66      0.59      0.61      4645
+weighted avg       0.93      0.94      0.93      4645

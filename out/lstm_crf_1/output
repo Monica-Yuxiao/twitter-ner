@@ -1,0 +1,840 @@
+/anaconda/bin/python3.5 /Users/yuxiaozhang/Documents/19spring/cs273/twitter-ner/train_1.py
+how many examples:  1914
+first example:
+ (['@paulwalk', 'It', "'s", 'the', 'view', 'from', 'where', 'I', "'m", 'living', 'for', 'two', 'weeks', '.', 'Empire', 'State', 'Building', '=', 'ESB', '.', 'Pretty', 'bad', 'storm', 'here', 'last', 'evening', '.'], ['O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'B-facility', 'I-facility', 'I-facility', 'O', 'B-facility', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'])
+last example:
+ (['Avast', 'AntiVirus', '4', '8', 'PROFIONAL', 'Full', 'Life', 'Time', 'Key', ':', 'Avast', 'AntiVirus', '4.8', 'PROFESIONAL', 'Full', 'with', 'Life', 'Time'], ['B-product', 'I-product', 'I-product', 'I-product', 'I-product', 'O', 'O', 'O', 'O', 'O', 'B-product', 'I-product', 'I-product', 'I-product', 'O', 'O', 'O', 'O'])
+== vocab size:  8910
+== how many rare word:  6199
+== word_to_ix size:  2712
+1537 train examples, 377 validation examples.
+epoch 0
+epoch 0: train_loss = 3.567707 val_loss = 3.420432
+epoch 1
+epoch 1: train_loss = 3.387201 val_loss = 3.315120
+epoch 2
+epoch 2: train_loss = 3.290983 val_loss = 3.245074
+epoch 3
+epoch 3: train_loss = 3.233633 val_loss = 3.190825
+epoch 4
+epoch 4: train_loss = 3.187161 val_loss = 3.133910
+epoch 5
+epoch 5: train_loss = 3.152319 val_loss = 3.142196
+epoch 6
+epoch 6: train_loss = 3.121531 val_loss = 3.104405
+epoch 7
+epoch 7: train_loss = 3.095175 val_loss = 3.096014
+epoch 8
+epoch 8: train_loss = 3.072655 val_loss = 3.083104
+epoch 9
+epoch 9: train_loss = 3.051146 val_loss = 3.069433
+epoch 10
+epoch 10: train_loss = 3.031494 val_loss = 3.063750
+epoch 11
+epoch 11: train_loss = 3.012005 val_loss = 3.039758
+epoch 12
+epoch 12: train_loss = 2.993580 val_loss = 3.031826
+epoch 13
+epoch 13: train_loss = 2.976915 val_loss = 2.990653
+epoch 14
+epoch 14: train_loss = 2.961958 val_loss = 3.037481
+epoch 15
+epoch 15: train_loss = 2.949463 val_loss = 3.023479
+epoch 16
+epoch 16: train_loss = 2.935004 val_loss = 2.981173
+epoch 17
+epoch 17: train_loss = 2.923031 val_loss = 2.987863
+epoch 18
+epoch 18: train_loss = 2.912762 val_loss = 2.989443
+epoch 19
+epoch 19: train_loss = 2.900207 val_loss = 2.954510
+epoch 20
+epoch 20: train_loss = 2.886734 val_loss = 2.876408
+epoch 21
+epoch 21: train_loss = 2.874134 val_loss = 2.917905
+epoch 22
+epoch 22: train_loss = 2.862728 val_loss = 2.825619
+epoch 23
+epoch 23: train_loss = 2.852425 val_loss = 2.850936
+epoch 24
+epoch 24: train_loss = 2.841549 val_loss = 2.961736
+epoch 25
+epoch 25: train_loss = 2.831462 val_loss = 2.873277
+epoch 26
+epoch 26: train_loss = 2.822274 val_loss = 2.806992
+epoch 27
+epoch 27: train_loss = 2.812616 val_loss = 2.897974
+epoch 28
+epoch 28: train_loss = 2.802705 val_loss = 2.831472
+epoch 29
+epoch 29: train_loss = 2.793148 val_loss = 2.819280
+epoch 30
+epoch 30: train_loss = 2.784107 val_loss = 2.868709
+epoch 31
+epoch 31: train_loss = 2.775300 val_loss = 2.827262
+epoch 32
+epoch 32: train_loss = 2.765606 val_loss = 2.766249
+epoch 33
+epoch 33: train_loss = 2.756281 val_loss = 2.851348
+epoch 34
+epoch 34: train_loss = 2.746689 val_loss = 2.853890
+epoch 35
+epoch 35: train_loss = 2.738376 val_loss = 2.781069
+epoch 36
+epoch 36: train_loss = 2.729762 val_loss = 2.820002
+epoch 37
+epoch 37: train_loss = 2.721482 val_loss = 2.737773
+epoch 38
+epoch 38: train_loss = 2.712858 val_loss = 2.702442
+epoch 39
+epoch 39: train_loss = 2.703625 val_loss = 2.636569
+epoch 40
+epoch 40: train_loss = 2.695107 val_loss = 2.675220
+epoch 41
+epoch 41: train_loss = 2.686765 val_loss = 2.734328
+epoch 42
+epoch 42: train_loss = 2.678319 val_loss = 2.672873
+epoch 43
+epoch 43: train_loss = 2.670089 val_loss = 2.661345
+epoch 44
+epoch 44: train_loss = 2.662084 val_loss = 2.785383
+epoch 45
+epoch 45: train_loss = 2.653971 val_loss = 2.767026
+epoch 46
+epoch 46: train_loss = 2.646357 val_loss = 2.669262
+epoch 47
+epoch 47: train_loss = 2.639298 val_loss = 2.670796
+epoch 48
+epoch 48: train_loss = 2.631126 val_loss = 2.674271
+epoch 49
+epoch 49: train_loss = 2.623156 val_loss = 2.726527
+epoch 50
+epoch 50: train_loss = 2.615712 val_loss = 2.699878
+epoch 51
+epoch 51: train_loss = 2.608824 val_loss = 2.682879
+epoch 52
+epoch 52: train_loss = 2.602213 val_loss = 2.607836
+epoch 53
+epoch 53: train_loss = 2.594736 val_loss = 2.692828
+epoch 54
+epoch 54: train_loss = 2.587070 val_loss = 2.657668
+epoch 55
+epoch 55: train_loss = 2.579744 val_loss = 2.701526
+epoch 56
+epoch 56: train_loss = 2.572899 val_loss = 2.601387
+epoch 57
+epoch 57: train_loss = 2.565701 val_loss = 2.762974
+epoch 58
+epoch 58: train_loss = 2.558734 val_loss = 2.633316
+epoch 59
+epoch 59: train_loss = 2.552494 val_loss = 2.749587
+epoch 60
+epoch 60: train_loss = 2.545806 val_loss = 2.500097
+epoch 61
+epoch 61: train_loss = 2.538878 val_loss = 2.604018
+epoch 62
+epoch 62: train_loss = 2.531755 val_loss = 2.642865
+epoch 63
+epoch 63: train_loss = 2.525341 val_loss = 2.660198
+epoch 64
+epoch 64: train_loss = 2.518472 val_loss = 2.663576
+epoch 65
+epoch 65: train_loss = 2.512372 val_loss = 2.588421
+epoch 66
+epoch 66: train_loss = 2.505870 val_loss = 2.623777
+epoch 67
+epoch 67: train_loss = 2.499028 val_loss = 2.582140
+epoch 68
+epoch 68: train_loss = 2.493122 val_loss = 2.586057
+epoch 69
+epoch 69: train_loss = 2.486634 val_loss = 2.622284
+epoch 70
+epoch 70: train_loss = 2.480313 val_loss = 2.584317
+epoch 71
+epoch 71: train_loss = 2.474556 val_loss = 2.625323
+epoch 72
+epoch 72: train_loss = 2.468194 val_loss = 2.572500
+epoch 73
+epoch 73: train_loss = 2.462387 val_loss = 2.560193
+epoch 74
+epoch 74: train_loss = 2.456473 val_loss = 2.546593
+epoch 75
+epoch 75: train_loss = 2.449996 val_loss = 2.588746
+epoch 76
+epoch 76: train_loss = 2.444105 val_loss = 2.611866
+epoch 77
+epoch 77: train_loss = 2.438501 val_loss = 2.518809
+epoch 78
+epoch 78: train_loss = 2.433142 val_loss = 2.556832
+epoch 79
+epoch 79: train_loss = 2.427398 val_loss = 2.596579
+epoch 80
+epoch 80: train_loss = 2.421904 val_loss = 2.586332
+epoch 81
+epoch 81: train_loss = 2.415866 val_loss = 2.561196
+epoch 82
+epoch 82: train_loss = 2.409702 val_loss = 2.477629
+epoch 83
+epoch 83: train_loss = 2.404651 val_loss = 2.563849
+epoch 84
+epoch 84: train_loss = 2.398794 val_loss = 2.503089
+epoch 85
+epoch 85: train_loss = 2.393418 val_loss = 2.638197
+epoch 86
+epoch 86: train_loss = 2.387963 val_loss = 2.435261
+epoch 87
+epoch 87: train_loss = 2.382368 val_loss = 2.495991
+epoch 88
+epoch 88: train_loss = 2.377108 val_loss = 2.741112
+epoch 89
+epoch 89: train_loss = 2.371626 val_loss = 2.533808
+epoch 90
+epoch 90: train_loss = 2.366005 val_loss = 2.529063
+epoch 91
+epoch 91: train_loss = 2.360606 val_loss = 2.503123
+epoch 92
+epoch 92: train_loss = 2.355541 val_loss = 2.481692
+epoch 93
+epoch 93: train_loss = 2.350125 val_loss = 2.449399
+epoch 94
+epoch 94: train_loss = 2.344986 val_loss = 2.527593
+epoch 95
+epoch 95: train_loss = 2.340030 val_loss = 2.500291
+epoch 96
+epoch 96: train_loss = 2.335154 val_loss = 2.391095
+epoch 97
+epoch 97: train_loss = 2.330152 val_loss = 2.596398
+epoch 98
+epoch 98: train_loss = 2.325382 val_loss = 2.415109
+epoch 99
+epoch 99: train_loss = 2.320538 val_loss = 2.502522
+epoch 100
+epoch 100: train_loss = 2.315359 val_loss = 2.444683
+epoch 101
+epoch 101: train_loss = 2.310508 val_loss = 2.504214
+epoch 102
+epoch 102: train_loss = 2.305887 val_loss = 2.492250
+epoch 103
+epoch 103: train_loss = 2.301155 val_loss = 2.622824
+epoch 104
+epoch 104: train_loss = 2.296493 val_loss = 2.424735
+epoch 105
+epoch 105: train_loss = 2.291384 val_loss = 2.453523
+epoch 106
+epoch 106: train_loss = 2.286172 val_loss = 2.521588
+epoch 107
+epoch 107: train_loss = 2.280997 val_loss = 2.503743
+epoch 108
+epoch 108: train_loss = 2.276000 val_loss = 2.431151
+epoch 109
+epoch 109: train_loss = 2.271450 val_loss = 2.507593
+epoch 110
+epoch 110: train_loss = 2.267064 val_loss = 2.339516
+epoch 111
+epoch 111: train_loss = 2.262446 val_loss = 2.538122
+epoch 112
+epoch 112: train_loss = 2.257561 val_loss = 2.492551
+epoch 113
+epoch 113: train_loss = 2.252823 val_loss = 2.477894
+epoch 114
+epoch 114: train_loss = 2.248258 val_loss = 2.477158
+epoch 115
+epoch 115: train_loss = 2.243935 val_loss = 2.417734
+epoch 116
+epoch 116: train_loss = 2.239679 val_loss = 2.502742
+epoch 117
+epoch 117: train_loss = 2.235182 val_loss = 2.320154
+epoch 118
+epoch 118: train_loss = 2.231017 val_loss = 2.499812
+epoch 119
+epoch 119: train_loss = 2.226570 val_loss = 2.456138
+epoch 120
+epoch 120: train_loss = 2.222369 val_loss = 2.409969
+epoch 121
+epoch 121: train_loss = 2.218043 val_loss = 2.354416
+epoch 122
+epoch 122: train_loss = 2.213625 val_loss = 2.414930
+epoch 123
+epoch 123: train_loss = 2.209534 val_loss = 2.503205
+epoch 124
+epoch 124: train_loss = 2.205321 val_loss = 2.442827
+epoch 125
+epoch 125: train_loss = 2.201090 val_loss = 2.424891
+epoch 126
+epoch 126: train_loss = 2.197292 val_loss = 2.340257
+epoch 127
+epoch 127: train_loss = 2.193029 val_loss = 2.414421
+epoch 128
+epoch 128: train_loss = 2.188929 val_loss = 2.396372
+epoch 129
+epoch 129: train_loss = 2.184511 val_loss = 2.436930
+epoch 130
+epoch 130: train_loss = 2.180717 val_loss = 2.325143
+epoch 131
+epoch 131: train_loss = 2.176844 val_loss = 2.385422
+epoch 132
+epoch 132: train_loss = 2.172765 val_loss = 2.416644
+epoch 133
+epoch 133: train_loss = 2.168846 val_loss = 2.430519
+epoch 134
+epoch 134: train_loss = 2.164874 val_loss = 2.419080
+epoch 135
+epoch 135: train_loss = 2.161114 val_loss = 2.369810
+epoch 136
+epoch 136: train_loss = 2.157420 val_loss = 2.475697
+epoch 137
+epoch 137: train_loss = 2.153255 val_loss = 2.460502
+epoch 138
+epoch 138: train_loss = 2.149240 val_loss = 2.399241
+epoch 139
+epoch 139: train_loss = 2.145609 val_loss = 2.458685
+epoch 140
+epoch 140: train_loss = 2.141786 val_loss = 2.474243
+epoch 141
+epoch 141: train_loss = 2.137791 val_loss = 2.431034
+epoch 142
+epoch 142: train_loss = 2.134138 val_loss = 2.333847
+epoch 143
+epoch 143: train_loss = 2.130344 val_loss = 2.526440
+epoch 144
+epoch 144: train_loss = 2.126506 val_loss = 2.456811
+epoch 145
+epoch 145: train_loss = 2.122856 val_loss = 2.379672
+epoch 146
+epoch 146: train_loss = 2.119483 val_loss = 2.437342
+epoch 147
+epoch 147: train_loss = 2.115929 val_loss = 2.375429
+epoch 148
+epoch 148: train_loss = 2.112391 val_loss = 2.413282
+epoch 149
+epoch 149: train_loss = 2.108869 val_loss = 2.439505
+epoch 150
+epoch 150: train_loss = 2.105284 val_loss = 2.457180
+epoch 151
+epoch 151: train_loss = 2.101554 val_loss = 2.418983
+epoch 152
+epoch 152: train_loss = 2.098049 val_loss = 2.419023
+epoch 153
+epoch 153: train_loss = 2.094534 val_loss = 2.293027
+epoch 154
+epoch 154: train_loss = 2.091069 val_loss = 2.470168
+epoch 155
+epoch 155: train_loss = 2.087502 val_loss = 2.406341
+epoch 156
+epoch 156: train_loss = 2.084088 val_loss = 2.468554
+epoch 157
+epoch 157: train_loss = 2.080506 val_loss = 2.384872
+epoch 158
+epoch 158: train_loss = 2.077276 val_loss = 2.384549
+epoch 159
+epoch 159: train_loss = 2.073820 val_loss = 2.413090
+epoch 160
+epoch 160: train_loss = 2.070281 val_loss = 2.306419
+epoch 161
+epoch 161: train_loss = 2.066890 val_loss = 2.273448
+epoch 162
+epoch 162: train_loss = 2.063609 val_loss = 2.451203
+epoch 163
+epoch 163: train_loss = 2.060352 val_loss = 2.475279
+epoch 164
+epoch 164: train_loss = 2.056826 val_loss = 2.442979
+epoch 165
+epoch 165: train_loss = 2.053583 val_loss = 2.463649
+epoch 166
+epoch 166: train_loss = 2.050291 val_loss = 2.447489
+epoch 167
+epoch 167: train_loss = 2.047017 val_loss = 2.514213
+epoch 168
+epoch 168: train_loss = 2.043890 val_loss = 2.415208
+epoch 169
+epoch 169: train_loss = 2.040424 val_loss = 2.327518
+epoch 170
+epoch 170: train_loss = 2.037412 val_loss = 2.416588
+epoch 171
+epoch 171: train_loss = 2.034470 val_loss = 2.413012
+epoch 172
+epoch 172: train_loss = 2.031321 val_loss = 2.400946
+epoch 173
+epoch 173: train_loss = 2.028015 val_loss = 2.399536
+epoch 174
+epoch 174: train_loss = 2.024895 val_loss = 2.383083
+epoch 175
+epoch 175: train_loss = 2.021735 val_loss = 2.373141
+epoch 176
+epoch 176: train_loss = 2.018796 val_loss = 2.433616
+epoch 177
+epoch 177: train_loss = 2.015857 val_loss = 2.422443
+epoch 178
+epoch 178: train_loss = 2.012868 val_loss = 2.407300
+epoch 179
+epoch 179: train_loss = 2.009761 val_loss = 2.512330
+epoch 180
+epoch 180: train_loss = 2.006755 val_loss = 2.485631
+epoch 181
+epoch 181: train_loss = 2.003605 val_loss = 2.426149
+epoch 182
+epoch 182: train_loss = 2.000505 val_loss = 2.475641
+epoch 183
+epoch 183: train_loss = 1.997626 val_loss = 2.524789
+epoch 184
+epoch 184: train_loss = 1.994730 val_loss = 2.359043
+epoch 185
+epoch 185: train_loss = 1.991707 val_loss = 2.366993
+epoch 186
+epoch 186: train_loss = 1.988672 val_loss = 2.489248
+epoch 187
+epoch 187: train_loss = 1.985904 val_loss = 2.355310
+epoch 188
+epoch 188: train_loss = 1.983089 val_loss = 2.384717
+epoch 189
+epoch 189: train_loss = 1.980259 val_loss = 2.385802
+epoch 190
+epoch 190: train_loss = 1.977348 val_loss = 2.433376
+epoch 191
+epoch 191: train_loss = 1.974358 val_loss = 2.494161
+epoch 192
+epoch 192: train_loss = 1.971409 val_loss = 2.393275
+epoch 193
+epoch 193: train_loss = 1.968406 val_loss = 2.387708
+epoch 194
+epoch 194: train_loss = 1.965659 val_loss = 2.387621
+epoch 195
+epoch 195: train_loss = 1.962762 val_loss = 2.444378
+epoch 196
+epoch 196: train_loss = 1.959895 val_loss = 2.600512
+epoch 197
+epoch 197: train_loss = 1.957086 val_loss = 2.455074
+epoch 198
+epoch 198: train_loss = 1.954416 val_loss = 2.480744
+epoch 199
+epoch 199: train_loss = 1.951790 val_loss = 2.430784
+0 tags: tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 0, 2, 0, 0, 0, 0, 0,
+        0, 0, 0])
+
+After training: (tensor(156.0792), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+1 tags: tensor([0, 0, 0, 0, 2, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0])
+
+After training: (tensor(62.4641), [0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0])
+
+2 tags: tensor([2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(71.8382), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+3 tags: tensor([0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(59.9679), [0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+4 tags: tensor([2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(79.3726), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+5 tags: tensor([0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(135.3544), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+6 tags: tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(100.3148), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+7 tags: tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0])
+
+After training: (tensor(167.4861), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+8 tags: tensor([0, 0, 0, 0])
+
+After training: (tensor(15.0824), [0, 0, 0, 0])
+
+9 tags: tensor([0, 0, 0, 0, 2, 1, 1, 0, 0, 0, 0, 0])
+
+After training: (tensor(67.8917), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+              precision    recall  f1-score   support
+
+           0       0.94      1.00      0.97       134
+           1       1.00      0.60      0.75         5
+           2       1.00      0.25      0.40         8
+
+   micro avg       0.95      0.95      0.95       147
+   macro avg       0.98      0.62      0.71       147
+weighted avg       0.95      0.95      0.93       147
+
+/anaconda/bin/python3.5 /Users/yuxiaozhang/Documents/19spring/cs273/twitter-ner/train_1.py
+how many examples:  1914
+first example:
+ (['@paulwalk', 'It', "'s", 'the', 'view', 'from', 'where', 'I', "'m", 'living', 'for', 'two', 'weeks', '.', 'Empire', 'State', 'Building', '=', 'ESB', '.', 'Pretty', 'bad', 'storm', 'here', 'last', 'evening', '.'], ['O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'B-facility', 'I-facility', 'I-facility', 'O', 'B-facility', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'])
+last example:
+ (['Avast', 'AntiVirus', '4', '8', 'PROFIONAL', 'Full', 'Life', 'Time', 'Key', ':', 'Avast', 'AntiVirus', '4.8', 'PROFESIONAL', 'Full', 'with', 'Life', 'Time'], ['B-product', 'I-product', 'I-product', 'I-product', 'I-product', 'O', 'O', 'O', 'O', 'O', 'B-product', 'I-product', 'I-product', 'I-product', 'O', 'O', 'O', 'O'])
+== vocab size:  8910
+== how many rare word:  6199
+== word_to_ix size:  2712
+1523 train examples, 391 validation examples.
+epoch 0
+epoch 0: train_loss = 3.596100 val_loss = 3.384560
+epoch 1
+epoch 1: train_loss = 3.419069 val_loss = 3.269225
+epoch 2
+epoch 2: train_loss = 3.320282 val_loss = 3.198574
+epoch 3
+epoch 3: train_loss = 3.257486 val_loss = 3.195094
+epoch 4
+epoch 4: train_loss = 3.215889 val_loss = 3.130526
+epoch 5
+epoch 5: train_loss = 3.177453 val_loss = 3.099888
+epoch 6
+epoch 6: train_loss = 3.149996 val_loss = 3.057838
+epoch 7
+epoch 7: train_loss = 3.125529 val_loss = 3.036074
+epoch 8
+epoch 8: train_loss = 3.103417 val_loss = 3.046647
+epoch 9
+epoch 9: train_loss = 3.083707 val_loss = 3.042983
+epoch 10
+epoch 10: train_loss = 3.065576 val_loss = 2.976388
+epoch 11
+epoch 11: train_loss = 3.048738 val_loss = 3.033253
+epoch 12
+epoch 12: train_loss = 3.033466 val_loss = 3.041324
+epoch 13
+epoch 13: train_loss = 3.017731 val_loss = 3.023537
+epoch 14
+epoch 14: train_loss = 3.004354 val_loss = 3.021090
+epoch 15
+epoch 15: train_loss = 2.990023 val_loss = 3.046175
+epoch 16
+epoch 16: train_loss = 2.976778 val_loss = 3.030952
+epoch 17
+epoch 17: train_loss = 2.963607 val_loss = 2.964692
+epoch 18
+epoch 18: train_loss = 2.951990 val_loss = 2.974413
+epoch 19
+epoch 19: train_loss = 2.940108 val_loss = 2.929731
+epoch 20
+epoch 20: train_loss = 2.928019 val_loss = 2.968095
+epoch 21
+epoch 21: train_loss = 2.916709 val_loss = 3.017850
+epoch 22
+epoch 22: train_loss = 2.905623 val_loss = 3.178345
+epoch 23
+epoch 23: train_loss = 2.894719 val_loss = 2.940371
+epoch 24
+epoch 24: train_loss = 2.884357 val_loss = 2.967233
+epoch 25
+epoch 25: train_loss = 2.873991 val_loss = 2.946475
+epoch 26
+epoch 26: train_loss = 2.862135 val_loss = 3.000268
+epoch 27
+epoch 27: train_loss = 2.854177 val_loss = 2.960931
+epoch 28
+epoch 28: train_loss = 2.844243 val_loss = 2.977544
+epoch 29
+epoch 29: train_loss = 2.834598 val_loss = 3.136537
+epoch 30
+epoch 30: train_loss = 2.825583 val_loss = 2.915948
+epoch 31
+epoch 31: train_loss = 2.817904 val_loss = 2.918030
+epoch 32
+epoch 32: train_loss = 2.809545 val_loss = 2.869983
+epoch 33
+epoch 33: train_loss = 2.799846 val_loss = 2.896645
+epoch 34
+epoch 34: train_loss = 2.791184 val_loss = 2.929398
+epoch 35
+epoch 35: train_loss = 2.781450 val_loss = 2.899796
+epoch 36
+epoch 36: train_loss = 2.772081 val_loss = 2.965438
+epoch 37
+epoch 37: train_loss = 2.763108 val_loss = 2.880726
+epoch 38
+epoch 38: train_loss = 2.755308 val_loss = 2.912534
+epoch 39
+epoch 39: train_loss = 2.746395 val_loss = 3.017310
+epoch 40
+epoch 40: train_loss = 2.738033 val_loss = 2.914222
+epoch 41
+epoch 41: train_loss = 2.728932 val_loss = 2.937819
+epoch 42
+epoch 42: train_loss = 2.720829 val_loss = 3.016304
+epoch 43
+epoch 43: train_loss = 2.712662 val_loss = 2.838087
+epoch 44
+epoch 44: train_loss = 2.705925 val_loss = 2.832000
+epoch 45
+epoch 45: train_loss = 2.698629 val_loss = 2.826465
+epoch 46
+epoch 46: train_loss = 2.689452 val_loss = 2.942236
+epoch 47
+epoch 47: train_loss = 2.681607 val_loss = 2.871778
+epoch 48
+epoch 48: train_loss = 2.673324 val_loss = 2.875394
+epoch 49
+epoch 49: train_loss = 2.665002 val_loss = 2.939655
+epoch 50
+epoch 50: train_loss = 2.657565 val_loss = 2.881547
+epoch 51
+epoch 51: train_loss = 2.649569 val_loss = 2.768958
+epoch 52
+epoch 52: train_loss = 2.641309 val_loss = 2.891533
+epoch 53
+epoch 53: train_loss = 2.633852 val_loss = 2.718202
+epoch 54
+epoch 54: train_loss = 2.626540 val_loss = 2.721485
+epoch 55
+epoch 55: train_loss = 2.619227 val_loss = 2.804783
+epoch 56
+epoch 56: train_loss = 2.612120 val_loss = 2.820484
+epoch 57
+epoch 57: train_loss = 2.604582 val_loss = 2.888062
+epoch 58
+epoch 58: train_loss = 2.597586 val_loss = 2.773379
+epoch 59
+epoch 59: train_loss = 2.590174 val_loss = 2.972630
+epoch 60
+epoch 60: train_loss = 2.583093 val_loss = 2.753333
+epoch 61
+epoch 61: train_loss = 2.576011 val_loss = 2.741886
+epoch 62
+epoch 62: train_loss = 2.568716 val_loss = 2.857172
+epoch 63
+epoch 63: train_loss = 2.562143 val_loss = 2.655969
+epoch 64
+epoch 64: train_loss = 2.555215 val_loss = 2.792083
+epoch 65
+epoch 65: train_loss = 2.548260 val_loss = 2.892899
+epoch 66
+epoch 66: train_loss = 2.541171 val_loss = 2.715631
+epoch 67
+epoch 67: train_loss = 2.534719 val_loss = 2.851687
+epoch 68
+epoch 68: train_loss = 2.528133 val_loss = 2.760015
+epoch 69
+epoch 69: train_loss = 2.521840 val_loss = 2.560334
+epoch 70
+epoch 70: train_loss = 2.515600 val_loss = 2.748311
+epoch 71
+epoch 71: train_loss = 2.509260 val_loss = 2.736770
+epoch 72
+epoch 72: train_loss = 2.502903 val_loss = 2.683406
+epoch 73
+epoch 73: train_loss = 2.496519 val_loss = 2.768057
+epoch 74
+epoch 74: train_loss = 2.489738 val_loss = 2.722458
+epoch 75
+epoch 75: train_loss = 2.483029 val_loss = 2.758558
+epoch 76
+epoch 76: train_loss = 2.476690 val_loss = 2.629572
+epoch 77
+epoch 77: train_loss = 2.470550 val_loss = 2.711682
+epoch 78
+epoch 78: train_loss = 2.464384 val_loss = 2.804386
+epoch 79
+epoch 79: train_loss = 2.458080 val_loss = 2.723979
+epoch 80
+epoch 80: train_loss = 2.451411 val_loss = 2.851847
+epoch 81
+epoch 81: train_loss = 2.445978 val_loss = 2.632790
+epoch 82
+epoch 82: train_loss = 2.440032 val_loss = 2.705495
+epoch 83
+epoch 83: train_loss = 2.433874 val_loss = 2.731427
+epoch 84
+epoch 84: train_loss = 2.427453 val_loss = 2.712811
+epoch 85
+epoch 85: train_loss = 2.421667 val_loss = 2.580420
+epoch 86
+epoch 86: train_loss = 2.415537 val_loss = 2.695729
+epoch 87
+epoch 87: train_loss = 2.409523 val_loss = 2.735401
+epoch 88
+epoch 88: train_loss = 2.403881 val_loss = 2.690099
+epoch 89
+epoch 89: train_loss = 2.397967 val_loss = 2.698872
+epoch 90
+epoch 90: train_loss = 2.391931 val_loss = 2.810833
+epoch 91
+epoch 91: train_loss = 2.386550 val_loss = 2.757550
+epoch 92
+epoch 92: train_loss = 2.380942 val_loss = 2.809485
+epoch 93
+epoch 93: train_loss = 2.375342 val_loss = 2.683746
+epoch 94
+epoch 94: train_loss = 2.369790 val_loss = 2.773168
+epoch 95
+epoch 95: train_loss = 2.363880 val_loss = 2.804361
+epoch 96
+epoch 96: train_loss = 2.358503 val_loss = 2.713037
+epoch 97
+epoch 97: train_loss = 2.352926 val_loss = 2.725006
+epoch 98
+epoch 98: train_loss = 2.347329 val_loss = 2.702553
+epoch 99
+epoch 99: train_loss = 2.342188 val_loss = 2.675605
+epoch 100
+epoch 100: train_loss = 2.337012 val_loss = 2.705344
+epoch 101
+epoch 101: train_loss = 2.331544 val_loss = 2.699213
+epoch 102
+epoch 102: train_loss = 2.325648 val_loss = 2.719557
+epoch 103
+epoch 103: train_loss = 2.320252 val_loss = 2.645696
+epoch 104
+epoch 104: train_loss = 2.314914 val_loss = 2.721868
+epoch 105
+epoch 105: train_loss = 2.309668 val_loss = 2.679432
+epoch 106
+epoch 106: train_loss = 2.304380 val_loss = 2.626873
+epoch 107
+epoch 107: train_loss = 2.299302 val_loss = 2.673038
+epoch 108
+epoch 108: train_loss = 2.294126 val_loss = 2.703955
+epoch 109
+epoch 109: train_loss = 2.289042 val_loss = 2.592033
+epoch 110
+epoch 110: train_loss = 2.283860 val_loss = 2.669519
+epoch 111
+epoch 111: train_loss = 2.279056 val_loss = 2.649446
+epoch 112
+epoch 112: train_loss = 2.273814 val_loss = 2.805935
+epoch 113
+epoch 113: train_loss = 2.268807 val_loss = 2.739390
+epoch 114
+epoch 114: train_loss = 2.264106 val_loss = 2.718483
+epoch 115
+epoch 115: train_loss = 2.258900 val_loss = 2.874283
+epoch 116
+epoch 116: train_loss = 2.254256 val_loss = 2.586564
+epoch 117
+epoch 117: train_loss = 2.249348 val_loss = 2.786700
+epoch 118
+epoch 118: train_loss = 2.244569 val_loss = 2.753762
+epoch 119
+epoch 119: train_loss = 2.240072 val_loss = 2.636145
+0 tags: tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 0, 2, 0, 0, 0, 0, 0,
+        0, 0, 0])
+
+After training: (tensor(105.9930), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0])
+
+1 tags: tensor([0, 0, 0, 0, 2, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0])
+
+After training: (tensor(44.4752), [0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0, 0])
+
+2 tags: tensor([2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(51.8919), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+3 tags: tensor([0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(57.6060), [0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+4 tags: tensor([2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(56.9813), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+5 tags: tensor([0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(114.8862), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+6 tags: tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+After training: (tensor(58.2786), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+7 tags: tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0])
+
+After training: (tensor(141.7825), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+8 tags: tensor([0, 0, 0, 0])
+
+After training: (tensor(15.5270), [0, 0, 0, 0])
+
+9 tags: tensor([0, 0, 0, 0, 2, 1, 1, 0, 0, 0, 0, 0])
+
+After training: (tensor(51.0012), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+              precision    recall  f1-score   support
+
+           0       0.95      1.00      0.97       134
+           1       1.00      0.60      0.75         5
+           2       1.00      0.38      0.55         8
+
+   micro avg       0.95      0.95      0.95       147
+   macro avg       0.98      0.66      0.76       147
+weighted avg       0.95      0.95      0.94       147
+
+
+Process finished with exit code 0
+
+PREDICT 40
+              precision    recall  f1-score   support
+
+           0       0.93      1.00      0.97      4339
+           1       1.00      0.02      0.03       132
+           2       1.00      0.01      0.02       174
+
+   micro avg       0.93      0.93      0.93      4645
+   macro avg       0.98      0.34      0.34      4645
+weighted avg       0.94      0.93      0.90      4645
+
+PREDICT  120
+Process finished with exit code 0
+
+PREDICT 60
+
+              precision    recall  f1-score   support
+
+           0       0.94      1.00      0.97      4339
+           1       0.56      0.07      0.12       132
+           2       0.53      0.05      0.08       174
+
+   micro avg       0.94      0.94      0.94      4645
+   macro avg       0.68      0.37      0.39      4645
+weighted avg       0.91      0.94      0.91      4645
+
+PREDICT 80
+
+              precision    recall  f1-score   support
+
+           0       0.95      0.99      0.97      4339
+           1       0.35      0.23      0.28       132
+           2       0.55      0.12      0.20       174
+
+   micro avg       0.93      0.93      0.93      4645
+   macro avg       0.62      0.44      0.48      4645
+weighted avg       0.91      0.93      0.92      4645
+
+ PREDICT 100
+              precision    recall  f1-score   support
+
+           0       0.95      0.97      0.96      4339
+           1       0.29      0.36      0.32       132
+           2       0.43      0.19      0.26       174
+
+   micro avg       0.92      0.92      0.92      4645
+   macro avg       0.56      0.50      0.51      4645
+weighted avg       0.91      0.92      0.92      4645
+              precision    recall  f1-score   support
+
+PREDICT 120
+
+              precision    recall  f1-score   support
+
+           0       0.94      0.94      0.94      4339
+           1       0.05      0.06      0.06       132
+           2       0.07      0.05      0.06       174
+
+   micro avg       0.89      0.89      0.89      4645
+   macro avg       0.35      0.35      0.35      4645
+weighted avg       0.88      0.89      0.88      4645
+
+
+####
+           0       0.94      0.99      0.97      4339
+           1       0.50      0.16      0.24       132
+           2       0.67      0.13      0.21       174
+
+   micro avg       0.94      0.94      0.94      4645
+   macro avg       0.70      0.43      0.47      4645
+weighted avg       0.92      0.94      0.92      4645
+
+

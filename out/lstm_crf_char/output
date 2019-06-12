@@ -1,0 +1,382 @@
+ predict validation
+
+              precision    recall  f1-score   support
+
+           0       0.96      0.99      0.97      4339
+           1       0.60      0.35      0.44       132
+           2       0.65      0.31      0.42       174
+
+   micro avg       0.94      0.94      0.94      4645
+   macro avg       0.73      0.55      0.61      4645
+weighted avg       0.93      0.94      0.94      4645
+
+/anaconda/bin/python3.5 /Users/yuxiaozhang/Documents/19spring/cs273/twitter-ner/train_3.py
+how many examples:  1914
+first example:
+ (['@paulwalk', 'It', "'s", 'the', 'view', 'from', 'where', 'I', "'m", 'living', 'for', 'two', 'weeks', '.', 'Empire', 'State', 'Building', '=', 'ESB', '.', 'Pretty', 'bad', 'storm', 'here', 'last', 'evening', '.'], ['O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'B-facility', 'I-facility', 'I-facility', 'O', 'B-facility', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'])
+last example:
+ (['Avast', 'AntiVirus', '4', '8', 'PROFIONAL', 'Full', 'Life', 'Time', 'Key', ':', 'Avast', 'AntiVirus', '4.8', 'PROFESIONAL', 'Full', 'with', 'Life', 'Time'], ['B-product', 'I-product', 'I-product', 'I-product', 'I-product', 'O', 'O', 'O', 'O', 'O', 'B-product', 'I-product', 'I-product', 'I-product', 'O', 'O', 'O', 'O'])
+feature for 1st example:
+ [[0, 1], [1, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [1, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [1, 0], [1, 0], [1, 0], [0, 0], [1, 0], [0, 0], [1, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
+feature for last example:
+ [[1, 0], [1, 0], [0, 0], [0, 0], [1, 0], [1, 0], [1, 0], [1, 0], [1, 0], [0, 1], [1, 0], [1, 0], [0, 0], [1, 0], [1, 0], [0, 0], [1, 0], [1, 0]]
+== vocab size:  8910
+== how many rare word:  6199
+== word_to_ix size:  2712
+== char size:  93
+{'d': 26, 'Y': 69, ';': 55, '7': 60, '!': 59, 'A': 35, '1': 49, '\\': 92, ',': 53, '-': 58, 'b': 30, 'w': 6, '@': 1, '+': 80, 'H': 36, '?': 63, 'M': 57, 'E': 23, 'l': 5, '9': 67, 'u': 4, '0': 47, 't': 9, 'B': 25, '|': 79, 'h': 12, 'X': 84, 'c': 40, '4': 42, 'p': 2, '%': 86, 'k': 7, 'C': 48, 'x': 37, '#': 51, '(': 72, '6': 83, 'N': 33, 'i': 15, 'v': 14, '`': 91, 'W': 65, '"': 70, 'R': 71, '&': 54, 'g': 21, 'T': 46, 'a': 3, '3': 44, '5': 38, '=': 27, '}': 90, 'j': 43, 'I': 8, 'D': 52, 'e': 13, 'F': 31, ']': 82, '*': 75, 's': 11, 'G': 32, '2': 41, '~': 85, 'Q': 73, "'": 10, 'q': 68, 'L': 64, '$': 87, 'P': 28, '<UNK>': 0, '{': 89, '_': 66, 'z': 62, 'O': 76, 'r': 17, '8': 45, 'o': 18, 'U': 74, '[': 81, '.': 22, 'Z': 50, 'm': 19, 'f': 16, 'S': 24, '/': 39, ':': 34, 'n': 20, 'J': 77, 'y': 29, '^': 88, ')': 61, 'K': 78, 'V': 56}
+how many additional features:  2
+len(char_to_ix):  93
+len(word_to_ix):  2712
+features_dim:  2
+1540 training instances, 374 validation instances
+epoch 0
+epoch 0: train_loss = 3.179671 val_loss = 2.440947
+epoch 1
+epoch 1: train_loss = 2.899171 val_loss = 2.295492
+epoch 2
+epoch 2: train_loss = 2.763877 val_loss = 2.250965
+epoch 3
+epoch 3: train_loss = 2.682491 val_loss = 2.203635
+epoch 4
+epoch 4: train_loss = 2.622280 val_loss = 2.162090
+epoch 5
+epoch 5: train_loss = 2.579025 val_loss = 2.136964
+epoch 6
+epoch 6: train_loss = 2.542808 val_loss = 2.089705
+epoch 7
+epoch 7: train_loss = 2.511729 val_loss = 2.089160
+epoch 8
+epoch 8: train_loss = 2.481774 val_loss = 2.035433
+epoch 9
+epoch 9: train_loss = 2.455375 val_loss = 2.071333
+epoch 10
+epoch 10: train_loss = 2.431254 val_loss = 2.029020
+epoch 11
+epoch 11: train_loss = 2.410258 val_loss = 2.046433
+epoch 12
+epoch 12: train_loss = 2.390006 val_loss = 2.119130
+epoch 13
+epoch 13: train_loss = 2.371962 val_loss = 2.026255
+epoch 14
+epoch 14: train_loss = 2.352513 val_loss = 2.036512
+epoch 15
+epoch 15: train_loss = 2.334819 val_loss = 2.135896
+epoch 16
+epoch 16: train_loss = 2.317597 val_loss = 2.059531
+epoch 17
+epoch 17: train_loss = 2.304990 val_loss = 2.008827
+epoch 18
+epoch 18: train_loss = 2.290568 val_loss = 2.019550
+epoch 19
+epoch 19: train_loss = 2.277450 val_loss = 1.973877
+epoch 20
+epoch 20: train_loss = 2.264582 val_loss = 2.005603
+epoch 21
+epoch 21: train_loss = 2.251019 val_loss = 1.951169
+epoch 22
+epoch 22: train_loss = 2.240063 val_loss = 2.013607
+epoch 23
+epoch 23: train_loss = 2.230160 val_loss = 1.986126
+epoch 24
+epoch 24: train_loss = 2.218237 val_loss = 2.052624
+epoch 25
+epoch 25: train_loss = 2.208465 val_loss = 1.998070
+epoch 26
+epoch 26: train_loss = 2.200049 val_loss = 2.020150
+epoch 27
+epoch 27: train_loss = 2.190730 val_loss = 1.952516
+epoch 28
+epoch 28: train_loss = 2.182441 val_loss = 1.992766
+epoch 29
+epoch 29: train_loss = 2.173370 val_loss = 2.061012
+epoch 30
+epoch 30: train_loss = 2.163833 val_loss = 1.942353
+epoch 31
+epoch 31: train_loss = 2.155056 val_loss = 2.011625
+epoch 32
+epoch 32: train_loss = 2.147061 val_loss = 1.959737
+epoch 33
+epoch 33: train_loss = 2.138540 val_loss = 1.978009
+epoch 34
+epoch 34: train_loss = 2.130398 val_loss = 1.960293
+epoch 35
+epoch 35: train_loss = 2.122856 val_loss = 1.926757
+epoch 36
+epoch 36: train_loss = 2.116190 val_loss = 1.929136
+epoch 37
+epoch 37: train_loss = 2.109002 val_loss = 1.972612
+epoch 38
+epoch 38: train_loss = 2.101541 val_loss = 2.085823
+epoch 39
+epoch 39: train_loss = 2.093981 val_loss = 1.921432
+epoch 40
+epoch 40: train_loss = 2.087351 val_loss = 2.020104
+epoch 41
+epoch 41: train_loss = 2.080646 val_loss = 2.065479
+epoch 42
+epoch 42: train_loss = 2.073844 val_loss = 1.967497
+epoch 43
+epoch 43: train_loss = 2.066662 val_loss = 1.956938
+epoch 44
+epoch 44: train_loss = 2.060013 val_loss = 1.981796
+epoch 45
+epoch 45: train_loss = 2.053653 val_loss = 1.899687
+epoch 46
+epoch 46: train_loss = 2.046547 val_loss = 2.026703
+epoch 47
+epoch 47: train_loss = 2.040463 val_loss = 1.996004
+epoch 48
+epoch 48: train_loss = 2.034218 val_loss = 1.909494
+epoch 49
+epoch 49: train_loss = 2.028125 val_loss = 1.895524
+epoch 50
+epoch 50: train_loss = 2.022304 val_loss = 1.930091
+epoch 51
+epoch 51: train_loss = 2.016520 val_loss = 1.888355
+epoch 52
+epoch 52: train_loss = 2.010240 val_loss = 1.887776
+epoch 53
+epoch 53: train_loss = 2.004025 val_loss = 2.040920
+epoch 54
+epoch 54: train_loss = 1.998775 val_loss = 1.907645
+epoch 55
+epoch 55: train_loss = 1.992723 val_loss = 1.967851
+epoch 56
+epoch 56: train_loss = 1.987378 val_loss = 1.913360
+epoch 57
+epoch 57: train_loss = 1.981638 val_loss = 1.890480
+epoch 58
+epoch 58: train_loss = 1.976774 val_loss = 1.907895
+epoch 59
+epoch 59: train_loss = 1.971901 val_loss = 1.991815
+epoch 60
+epoch 60: train_loss = 1.965837 val_loss = 1.976329
+epoch 61
+epoch 61: train_loss = 1.960750 val_loss = 1.932777
+epoch 62
+epoch 62: train_loss = 1.956009 val_loss = 1.844060
+epoch 63
+epoch 63: train_loss = 1.950634 val_loss = 2.028140
+epoch 64
+epoch 64: train_loss = 1.945898 val_loss = 2.008264
+epoch 65
+epoch 65: train_loss = 1.940845 val_loss = 1.898767
+epoch 66
+epoch 66: train_loss = 1.935449 val_loss = 1.940269
+epoch 67
+epoch 67: train_loss = 1.930559 val_loss = 1.913153
+epoch 68
+epoch 68: train_loss = 1.925637 val_loss = 1.984810
+epoch 69
+epoch 69: train_loss = 1.920850 val_loss = 1.937873
+epoch 70
+epoch 70: train_loss = 1.916295 val_loss = 1.922367
+epoch 71
+epoch 71: train_loss = 1.911884 val_loss = 1.926915
+epoch 72
+epoch 72: train_loss = 1.907177 val_loss = 1.878013
+epoch 73
+epoch 73: train_loss = 1.902316 val_loss = 1.837505
+epoch 74
+epoch 74: train_loss = 1.897293 val_loss = 1.904688
+epoch 75
+epoch 75: train_loss = 1.892862 val_loss = 2.001513
+epoch 76
+epoch 76: train_loss = 1.888050 val_loss = 1.913741
+epoch 77
+epoch 77: train_loss = 1.883706 val_loss = 1.879134
+epoch 78
+epoch 78: train_loss = 1.878522 val_loss = 1.880312
+epoch 79
+epoch 79: train_loss = 1.873982 val_loss = 1.904506
+epoch 80
+epoch 80: train_loss = 1.869475 val_loss = 1.984508
+epoch 81
+epoch 81: train_loss = 1.865085 val_loss = 1.995180
+epoch 82
+epoch 82: train_loss = 1.861150 val_loss = 1.870598
+epoch 83
+epoch 83: train_loss = 1.856715 val_loss = 1.967128
+epoch 84
+epoch 84: train_loss = 1.852562 val_loss = 1.989110
+epoch 85
+epoch 85: train_loss = 1.848782 val_loss = 2.016350
+epoch 86
+epoch 86: train_loss = 1.844629 val_loss = 1.972918
+epoch 87
+epoch 87: train_loss = 1.840433 val_loss = 1.990695
+epoch 88
+epoch 88: train_loss = 1.836479 val_loss = 2.039359
+epoch 89
+epoch 89: train_loss = 1.832337 val_loss = 1.944482
+epoch 90
+epoch 90: train_loss = 1.828403 val_loss = 1.897356
+epoch 91
+epoch 91: train_loss = 1.824973 val_loss = 1.956451
+epoch 92
+epoch 92: train_loss = 1.820929 val_loss = 1.986975
+epoch 93
+epoch 93: train_loss = 1.816755 val_loss = 1.995788
+epoch 94
+epoch 94: train_loss = 1.812845 val_loss = 2.023693
+epoch 95
+epoch 95: train_loss = 1.809335 val_loss = 1.924949
+epoch 96
+epoch 96: train_loss = 1.805807 val_loss = 1.946556
+epoch 97
+epoch 97: train_loss = 1.802075 val_loss = 2.016495
+epoch 98
+epoch 98: train_loss = 1.798211 val_loss = 1.999775
+epoch 99
+epoch 99: train_loss = 1.794697 val_loss = 1.902679
+epoch 100
+epoch 100: train_loss = 1.790851 val_loss = 1.916457
+epoch 101
+epoch 101: train_loss = 1.787075 val_loss = 1.863416
+epoch 102
+epoch 102: train_loss = 1.783180 val_loss = 1.879168
+epoch 103
+epoch 103: train_loss = 1.779868 val_loss = 1.900224
+epoch 104
+epoch 104: train_loss = 1.776274 val_loss = 1.885733
+epoch 105
+epoch 105: train_loss = 1.772813 val_loss = 1.961010
+epoch 106
+epoch 106: train_loss = 1.769302 val_loss = 1.822948
+epoch 107
+epoch 107: train_loss = 1.765806 val_loss = 1.836332
+epoch 108
+epoch 108: train_loss = 1.762301 val_loss = 1.935693
+epoch 109
+epoch 109: train_loss = 1.758422 val_loss = 1.966463
+epoch 110
+epoch 110: train_loss = 1.755022 val_loss = 1.968169
+epoch 111
+epoch 111: train_loss = 1.751432 val_loss = 2.011578
+epoch 112
+epoch 112: train_loss = 1.747907 val_loss = 1.922113
+epoch 113
+epoch 113: train_loss = 1.743889 val_loss = 2.039946
+epoch 114
+epoch 114: train_loss = 1.740526 val_loss = 1.989917
+epoch 115
+epoch 115: train_loss = 1.737279 val_loss = 1.920900
+epoch 116
+epoch 116: train_loss = 1.733782 val_loss = 1.925255
+epoch 117
+epoch 117: train_loss = 1.730397 val_loss = 1.889856
+epoch 118
+epoch 118: train_loss = 1.726796 val_loss = 1.960436
+epoch 119
+epoch 119: train_loss = 1.723656 val_loss = 2.060486
+epoch 120
+epoch 120: train_loss = 1.720331 val_loss = 1.955669
+epoch 121
+epoch 121: train_loss = 1.717189 val_loss = 1.945479
+epoch 122
+epoch 122: train_loss = 1.713750 val_loss = 1.957079
+epoch 123
+epoch 123: train_loss = 1.710207 val_loss = 1.934233
+epoch 124
+epoch 124: train_loss = 1.707183 val_loss = 1.968451
+epoch 125
+epoch 125: train_loss = 1.703789 val_loss = 1.997746
+epoch 126
+epoch 126: train_loss = 1.700117 val_loss = 2.051456
+epoch 127
+epoch 127: train_loss = 1.697013 val_loss = 1.978618
+epoch 128
+epoch 128: train_loss = 1.693908 val_loss = 2.078318
+epoch 129
+epoch 129: train_loss = 1.690764 val_loss = 1.985343
+epoch 130
+epoch 130: train_loss = 1.687640 val_loss = 1.972661
+epoch 131
+epoch 131: train_loss = 1.684711 val_loss = 1.907438
+epoch 132
+epoch 132: train_loss = 1.681623 val_loss = 2.057173
+epoch 133
+Traceback (most recent call last):
+  File "/Users/yuxiaozhang/Documents/19spring/cs273/twitter-ner/train_3.py", line 155, in <module>
+    loss = model.neg_log_likelihood(sentence_in, targets, features_in, chars_in)
+  File "/Users/yuxiaozhang/Documents/19spring/cs273/twitter-ner/CNN_BLSTM_CRF.py", line 224, in neg_log_likelihood
+    forward_score = self._forward_alg(emission)
+  File "/Users/yuxiaozhang/Documents/19spring/cs273/twitter-ner/CNN_BLSTM_CRF.py", line 185, in _forward_alg
+    alphas_t.append(log_sum_exp(next_tag_var).view(1))
+KeyboardInterrupt
+
+Process finished with exit code 1
+
+predict use 120
+
+              precision    recall  f1-score   support
+
+           0       0.96      0.99      0.97      4339
+           1       0.60      0.45      0.51       132
+           2       0.70      0.39      0.50       174
+
+   micro avg       0.95      0.95      0.95      4645
+   macro avg       0.75      0.61      0.66      4645
+weighted avg       0.94      0.95      0.94      4645
+
+
+predict use 100
+
+              precision    recall  f1-score   support
+
+           0       0.96      0.98      0.97      4339
+           1       0.59      0.48      0.53       132
+           2       0.69      0.43      0.52       174
+
+   micro avg       0.95      0.95      0.95      4645
+   macro avg       0.75      0.63      0.68      4645
+weighted avg       0.94      0.95      0.94      4645
+
+predict use 80
+
+              precision    recall  f1-score   support
+
+           0       0.96      0.98      0.97      4339
+           1       0.54      0.46      0.50       132
+           2       0.64      0.44      0.52       174
+
+   micro avg       0.95      0.95      0.95      4645
+   macro avg       0.71      0.63      0.66      4645
+weighted avg       0.94      0.95      0.94      4645
+
+predict use 60
+
+              precision    recall  f1-score   support
+
+           0       0.96      0.98      0.97      4339
+           1       0.55      0.44      0.49       132
+           2       0.66      0.39      0.49       174
+
+   micro avg       0.95      0.95      0.95      4645
+   macro avg       0.73      0.60      0.65      4645
+weighted avg       0.94      0.95      0.94      4645
+
+predict use 40
+
+              precision    recall  f1-score   support
+
+           0       0.97      0.97      0.97      4339
+           1       0.48      0.68      0.57       132
+           2       0.62      0.49      0.55       174
+
+   micro avg       0.94      0.94      0.94      4645
+   macro avg       0.69      0.71      0.69      4645
+weighted avg       0.95      0.94      0.94      4645
+
+predict use 20
+
+              precision    recall  f1-score   support
+
+           0       0.95      0.99      0.97      4339
+           1       0.61      0.27      0.38       132
+           2       0.77      0.21      0.33       174
+
+   micro avg       0.94      0.94      0.94      4645
+   macro avg       0.78      0.49      0.56      4645
+weighted avg       0.93      0.94      0.93      4645
